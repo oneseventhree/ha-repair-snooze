@@ -1,0 +1,14 @@
+{
+  "title": "Repair Snooze",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Hide restart repair notifications until next restart",
+        "description": "Automatically hide Marketplace 'Restart required' repair notifications. Your current Marketplace restart repairs will be hidden when you first enable this integration. Only these restart reminders are affected; other repairs stay visible. Temporary ignores are undone on the next Home Assistant restart."
+      }
+    },
+    "abort": {
+      "already_configured": "Repair Snooze is already configured."
+    }
+  }
+}
