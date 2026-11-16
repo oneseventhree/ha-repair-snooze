@@ -1,6 +1,6 @@
 # Repair Snooze
 
-**Experimental custom integration for Home Assistant 2026.11 and newer.**
+**Home Assistant 2026.11+ custom integration · v1.0.0**
 
 Automatically hides **Marketplace "Restart required" repairs** after you update or install a custom integration, until the next Home Assistant restart. It never performs or prevents a restart.
 
@@ -37,8 +37,8 @@ Marketplace integration updates **still require a restart to activate the new co
 
 ## Compatibility and limitations
 
-- Tested against **Home Assistant Core 2026.11.1 source** and local simulated lifecycle tests; **not tested yet on a live Home Assistant installation**.
-- This is an **experimental** integration using internal registry details that may change in later releases.
+- Confirmed working in a Home Assistant installation by the repository owner and checked against **Home Assistant Core 2026.11.1** code and simulated lifecycle tests.
+- Uses Home Assistant's internal repairs registry; future Home Assistant versions may change those APIs.
 - It does not add a button to the built-in Repairs UI; snoozing is automatic.
 - A forced stop or power loss can interrupt the delayed write of the latest snooze history.
 - Uninstalling Repair Snooze un-ignores the repairs it recorded.
@@ -51,3 +51,17 @@ Please [report an issue](https://github.com/oneseventhree/ha-repair-snooze/issue
 - `tests/test_lifecycle.py` — small self-contained unit tests using mock Home Assistant objects, not a full Home Assistant integration test environment.
 
 **Safety:** Because this integration suppresses restart reminders, remember to restart Home Assistant after Marketplace updates when convenient.
+
+## Versions and releases
+
+Repair Snooze follows [Semantic Versioning](https://semver.org/):
+
+- **Patch (1.0.1):** backwards-compatible bug fixes.
+- **Minor (1.1.0):** backwards-compatible features or improvements.
+- **Major (2.0.0):** breaking changes.
+
+The installed integration's version is declared in `custom_components/repair_snooze/manifest.json`. Every stable version is published as a **GitHub Release** with a matching `vMAJOR.MINOR.PATCH` tag (for example, `v1.0.0`). Marketplace discovers release tags and shows the associated release notes.
+
+For maintainers: update the manifest version and add a matching `## [MAJOR.MINOR.PATCH]` section to `CHANGELOG.md` in the same commit to `main`. The release workflow creates the tag and publishes the release automatically. Do not rewrite or reuse existing version tags.
+
+See the [changelog](CHANGELOG.md) for release notes.
